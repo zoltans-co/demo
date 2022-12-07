@@ -1,5 +1,6 @@
 package com.example.demo.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 import javax.persistence.*;
@@ -51,5 +52,10 @@ public class ToDo {
         this.description = description;
         this.completed = completed;
         this.dueDate = dueDate;
+    }
+
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    public AppUser getUserId() {
+        return userId;
     }
 }

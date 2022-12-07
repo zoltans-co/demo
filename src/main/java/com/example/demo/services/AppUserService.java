@@ -16,8 +16,8 @@ public class AppUserService {
         this.appUserRepository = appUserRepository;
     }
 
-    public void createUser(final AppUser appUser) {
-        appUserRepository.save(appUser);
+    public AppUser createUser(final AppUser appUser) {
+        return appUserRepository.save(appUser);
     }
 
     public AppUser getUserById(final Long id) {

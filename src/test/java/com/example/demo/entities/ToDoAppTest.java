@@ -32,7 +32,7 @@ public class ToDoAppTest {
         toDoService = new ToDoService(toDoRepository);
     }
 
-    @AfterEach
+    //@AfterEach
     void tearDown() {
         toDoRepository.deleteAll();
         toDoRepository.flush();
@@ -40,7 +40,7 @@ public class ToDoAppTest {
         appUserRepository.flush();
     }
 
-    @Test
+    //@Test
     void createUser() {
         // given
         final AppUser appUser = new AppUser("JohnDoe", "secret", "John", "Doe");

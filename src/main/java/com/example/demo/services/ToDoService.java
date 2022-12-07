@@ -18,12 +18,12 @@ public class ToDoService {
         this.toDoRepository = toDoRepository;
     }
 
-    public void createToDo(final ToDo toDo) {
-        toDoRepository.save(toDo);
+    public ToDo createToDo(final ToDo toDo) {
+        return toDoRepository.save(toDo);
     }
 
-    public ToDo updateToDoWithId(final Long userId, final Long toDoId, final ToDo toDo) {
-        final ToDo todo = toDoRepository.findByUserIdAndId(userId, toDoId).orElseThrow(()
+    public ToDo updateToDoWithId(final Long toDoId, final ToDo toDo) {
+        final ToDo todo = toDoRepository.findById(toDoId).orElseThrow(()
                 -> new NotFoundException("ToDo not found with id: " + toDoId));
         todo.setTitle(toDo.getTitle());
         todo.setDescription(toDo.getDescription());
@@ -36,8 +36,8 @@ public class ToDoService {
         return toDoRepository.findByUserId(userId);
     }
 
-    public ToDo getToDoByUserAndId(final Long userId, final Long id) {
-        return toDoRepository.findByUserIdAndId(userId, id).orElseThrow(() ->
+    public ToDo getToDoById(final Long id) {
+        return toDoRepository.findById(id).orElseThrow(() ->
                 new NotFoundException("ToDo not found with id: " + id));
     }
 
