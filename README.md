@@ -44,7 +44,7 @@ docker-compose --file docker-compose-mysql.yaml down
         <resource>
             <!--directory>src/frontend-vue/dist</directory-->
             <directory>src/frontend-angular/dist/frontend-angular</directory>
-            <!--directory>src/frontend-react/public</directory-->
+            <!--directory>src/frontend-react/build</directory-->
             <filtering>true</filtering>
         </resource>
     </resources>
